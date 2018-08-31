@@ -134,6 +134,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Infrastructure\AppBuilderExtensions.cs" />
     <Compile Include="Infrastructure\IoC\ComponentsInstaller.cs" />
     <Compile Include="Infrastructure\IoC\ControllersInstaller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

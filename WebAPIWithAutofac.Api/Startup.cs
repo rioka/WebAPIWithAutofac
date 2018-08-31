@@ -1,11 +1,8 @@
-﻿using System.Reflection;
-using System.Web.Http;
-using Autofac;
-using Autofac.Integration.WebApi;
+﻿using System.Web.Http;
 using Microsoft.Owin;
 using Owin;
 using WebAPIWithAutofac.Api;
-using WebAPIWithAutofac.Api.Services;
+using WebAPIWithAutofac.Api.Infrastructure;
 
 [assembly: OwinStartup(typeof(Startup))]
 namespace WebAPIWithAutofac.Api
@@ -24,18 +21,7 @@ namespace WebAPIWithAutofac.Api
       WebApiConfig.Register(config);
 
       // Autofac setup
-      var builder = new ContainerBuilder();
-
-      builder.RegisterAssemblyModules(Assembly.GetExecutingAssembly());
-
-      var container = builder.Build();
-      config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
-
-      // OWIN WEB API SETUP, IN THIS ORDER
-      // http://autofac.readthedocs.io/en/latest/integration/webapi.html#owin-integration
-      app.UseAutofacMiddleware(container);
-      app.UseAutofacWebApi(config);
-      // Autofac setup end
+      app.IoCSetup(config);
 
       app.UseWebApi(config);
     }
