@@ -47,5 +47,5 @@ Now you have a working OWIN Web API application
   * Register controllers
   * Register components
   * Build a container and set it as `DependencyResolver` for the current `HttpConfigutation`
-  * Call `UseAutofacMiddleware`
+  * Call `UseAutofacMiddleware` (even though we currently do not use OWIN middlewares, leave it just in case we add them later)
   * Call `UseAutofacWebApi`
