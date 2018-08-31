@@ -37,3 +37,15 @@ Now you have a working OWIN Web API application
 * Add `IValueProvider` as a constructor dependency to `ValuesController`
 
 **Site will stop working**
+
+## Add Autofac
+* `Install-Package Autofac.WebApi2`
+* `Install-Package Autofac.WebApi2.Owin`
+
+## Setup Autofac
+* Add Autofac setup code
+  * Register controllers
+  * Register components
+  * Build a container and set it as `DependencyResolver` for the current `HttpConfigutation`
+  * Call `UseAutofacMiddleware`
+  * Call `UseAutofacWebApi`
