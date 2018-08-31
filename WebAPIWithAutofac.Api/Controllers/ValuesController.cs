@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
+using WebAPIWithAutofac.Api.Services;
 
 namespace WebAPIWithAutofac.Api.Controllers
 {
@@ -7,12 +8,16 @@ namespace WebAPIWithAutofac.Api.Controllers
   {
     #region Data
 
+    private readonly IValueProvider _valueProvider;
+
     #endregion
 
     #region Constructors
 
-    public ValuesController()
-    {}
+    public ValuesController(IValueProvider valueProvider)
+    {
+      _valueProvider = valueProvider;
+    }
 
     #endregion
 
@@ -21,8 +26,8 @@ namespace WebAPIWithAutofac.Api.Controllers
     public IEnumerable<string> Get()
     {
       return new[] {
-        1.ToString(),
-        2.ToString()
+        _valueProvider.Get(),
+        _valueProvider.Get()
       };
     }
 

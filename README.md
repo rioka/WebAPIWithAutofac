@@ -29,3 +29,11 @@ Sample Web API project from scratch using Autofac
   * `Startup.cs`
 
 Now you have a working OWIN Web API application
+
+## Add a dependency 
+* Add a `Services` folder
+* Add `.\Services\IValueProvider.cs`
+* Add `.\Services\ValueProvider.cs`
+* Add `IValueProvider` as a constructor dependency to `ValuesController`
+
+**Site will stop working**
