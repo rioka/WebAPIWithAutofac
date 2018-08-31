@@ -26,13 +26,7 @@ namespace WebAPIWithAutofac.Api
       // Autofac setup
       var builder = new ContainerBuilder();
 
-      builder
-        .RegisterApiControllers(Assembly.GetExecutingAssembly())
-        .ExternallyOwned();     // just to avoid having Dispose called twice for controllers
-
-      builder.RegisterType<ValueProvider>()
-        .AsImplementedInterfaces()
-        .InstancePerRequest();
+      builder.RegisterAssemblyModules(Assembly.GetExecutingAssembly());
 
       var container = builder.Build();
       config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
