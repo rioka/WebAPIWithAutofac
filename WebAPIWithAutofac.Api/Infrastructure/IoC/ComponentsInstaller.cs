@@ -10,6 +10,10 @@ namespace WebAPIWithAutofac.Api.Infrastructure.IoC
       builder.RegisterType<ValueProvider>()
         .AsImplementedInterfaces()
         .InstancePerRequest();
+
+      builder.RegisterType<Builder>()
+        .AsImplementedInterfaces()
+        .InstancePerDependency();
     }
   }
 }
